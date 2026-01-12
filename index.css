@@ -1,0 +1,391 @@
+:root {
+  --bg-main: #0b1020;              /* page background */
+  --bg-section: #0f172a;           /* section alt background */
+  --bg-card: rgba(255, 255, 255, 0.08);
+
+  --border-soft: rgba(255, 255, 255, 0.14);
+
+  --text-primary: #f1f5f9;         /* headings */
+  --text-secondary: #cbd5e1;       /* body text */
+  --text-muted: #94a3b8;           /* subtitles */
+
+  --accent-primary: #6366f1;       /* indigo */
+  --accent-secondary: #8b5cf6;     /* violet */
+
+  --shadow-soft: 0 12px 32px rgba(0, 0, 0, 0.35);
+  --shadow-hover: 0 20px 48px rgba(0, 0, 0, 0.55);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  background: linear-gradient(180deg, #020617, var(--bg-main));
+  color: var(--text-secondary);
+  padding-top: 72px;
+}
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+.appNavbar {
+  background: rgba(2, 6, 23, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.appBrand {
+  font-weight: 900;
+  letter-spacing: 0.4px;
+  color: var(--text-primary);
+}
+
+.appNavLink {
+  font-weight: 700;
+  color: var(--text-secondary) !important;
+}
+
+.appNavLink:hover {
+  color: var(--text-primary) !important;
+}
+
+/* =========================
+   LANDING SECTION
+   ========================= */
+
+.landingSection {
+  padding: 80px 0 72px;
+  text-align: center;
+}
+
+.landingKicker {
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+}
+
+.landingName {
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 900;
+  color: var(--text-primary);
+}
+
+.landingRole {
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  font-weight: 800;
+  color: var(--accent-primary);
+}
+
+.landingSummary {
+  max-width: 62ch;
+  margin: 0 auto;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+/* =========================
+   BUTTONS
+   ========================= */
+
+.appBtnPrimary {
+  background: linear-gradient(
+    90deg,
+    var(--accent-primary),
+    var(--accent-secondary)
+  ) !important;
+  border: none !important;
+  font-weight: 800 !important;
+  padding: 0.75rem 1.3rem !important;
+  box-shadow: var(--shadow-soft);
+}
+
+.appBtnPrimary:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+
+.appBtnGhost {
+  border: 1px solid var(--border-soft) !important;
+  color: var(--text-primary) !important;
+  font-weight: 800 !important;
+  padding: 0.75rem 1.3rem !important;
+}
+
+.appBtnGhost:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* =========================
+   PROFILE IMAGE
+   ========================= */
+
+.profileWrap {
+  width: 160px;
+  height: 160px;
+  margin-bottom: 1rem;
+  position: relative;
+  border-radius: 999px;
+}
+
+.profileImgModern {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 999px;
+  border: 2px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.profileWrap:hover .profileImgModern {
+  transform: scale(1.07);
+  box-shadow: var(--shadow-hover);
+}
+
+/* =========================
+   SECTIONS
+   ========================= */
+
+.sectionPad {
+  padding: 72px 0;
+}
+
+.sectionAlt {
+  background: var(--bg-section);
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--text-primary);
+}
+
+.sectionSubtitle {
+  max-width: 70ch;
+  margin: 0 auto;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* =========================
+   CARDS (PROJECTS + CONTACT)
+   ========================= */
+
+.appCard {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-soft) !important;
+  border-radius: 16px !important;
+  box-shadow: var(--shadow-soft);
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.appCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* CARD TITLE COLOR */
+.cardTitle {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--text-primary);   /* FIXED */
+}
+
+.cardText {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* =========================
+   PROJECT IMAGES
+   ========================= */
+
+#projects .projectCard {
+  overflow: hidden;
+}
+
+#projects .projectImg {
+  height: 210px;
+  object-fit: cover;
+  background: #020617;
+}
+
+/* =========================
+   TOOLS SECTION
+   ========================= */
+
+/* Card-style background for each tools category */
+.toolsGroup {
+  background: rgba(255, 255, 255, 0.14); /* lighter than project cards */
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  padding: 28px 20px 30px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.25);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+/* Subtle lift on hover */
+.toolsGroup:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.45);
+}
+
+/* Tools category titles */
+.toolsGroupTitle {
+  font-weight: 900;
+  color: #0f172a; /* dark slate for strong contrast */
+  background: rgba(255, 255, 255, 0.85);
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.3px;
+}
+
+/* Logo grid stays centered */
+.toolsIcons {
+  display: grid;
+  grid-template-columns: repeat(2, 72px);
+  justify-content: center;
+  gap: 18px 22px;
+  margin-top: 18px;
+}
+
+
+.toolLogo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border-radius: 14px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+
+.toolLogo:hover {
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.45);
+}
+
+/* Mobile adjustments */
+@media (max-width: 575.98px) {
+  .toolsIcons {
+    grid-template-columns: repeat(2, 64px);
+    gap: 14px 18px;
+  }
+
+  .toolLogo {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+
+
+/* =========================
+   FORM
+   ========================= */
+
+.appLabel {
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.appInput {
+  background: rgba(2, 6, 23, 0.7) !important;
+  border: 1px solid var(--border-soft) !important;
+  color: var(--text-primary) !important;
+  border-radius: 12px !important;
+  padding: 0.75rem 0.9rem !important;
+}
+
+.appInput:focus {
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.35) !important;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.appFooter {
+  padding: 26px 0;
+  background: rgba(2, 6, 23, 0.85);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.footerBrandWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.footerBrand {
+  font-weight: 900;
+  font-size: 1.25rem;
+  letter-spacing: 0.3px;
+  color: var(--text-primary);
+}
+
+.footerRole {
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.footerRightsWrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.footerLogo {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 6px;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.25);
+}
+
+.footerRights {
+  color: var(--text-secondary);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+/* Mobile: center alignment */
+@media (max-width: 767.98px) {
+  .footerBrandWrap {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footerRightsWrap {
+    justify-content: center;
+  }
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 575.98px) {
+  .profileWrap {
+    width: 140px;
+    height: 140px;
+  }
+
+  #projects .projectImg {
+    height: 190px;
+  }
+}
