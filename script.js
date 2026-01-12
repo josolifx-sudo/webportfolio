@@ -43,18 +43,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 2) Active nav highlight on scroll
   const setActiveLink = () => {
-    const scrollPos = window.scrollY + getNavOffset() + 40;
+    const offset = getNavOffset();
+    const scrollPos = window.scrollY + offset + 1;
 
-    let currentId = "landing";
-    sections.forEach((sec) => {
-      if (sec.offsetTop <= scrollPos) currentId = sec.id;
+    let currentId = sections[0]?.id;
+
+    sections.forEach((section, index) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const sectionBottom = sectionTop + sectionHeight;
+
+      // Normal section range
+      if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+        currentId = section.id;
+      }
+
+      // FIX: Force last section active when near page bottom
+      if (
+        index === sections.length - 1 &&
+        window.innerHeight + window.scrollY >=
+          document.body.offsetHeight - 2
+      ) {
+        currentId = section.id;
+      }
     });
 
-    navLinks.forEach((a) => {
-      const href = a.getAttribute("href");
-      a.classList.toggle("is-active", href === `#${currentId}`);
+    navLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+      link.classList.toggle("is-active", href === `#${currentId}`);
     });
   };
+
 
   window.addEventListener("scroll", setActiveLink, { passive: true });
   setActiveLink();
