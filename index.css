@@ -389,3 +389,61 @@ body {
     height: 190px;
   }
 }
+
+/* Active nav link */
+.appNavLink.is-active {
+  color: var(--text-primary) !important;
+  position: relative;
+}
+
+.appNavLink.is-active::after {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: 6px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 520ms ease, transform 520ms ease;
+}
+
+.reveal--show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scroll-to-top button */
+.toTopBtn {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  color: #fff;
+  font-weight: 900;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.toTopBtn--show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.toTopBtn:hover {
+  transform: translateY(-2px);
+}
